@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>优雅钢琴模拟器</title>
+    
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./md.css">
+    <link rel="stylesheet" href="./reset.css">
+    <!-- <link rel="stylesheet" href="../../fontawesome-free-6.4.2-web/css/all.css"> -->
+    <style>
+       ::-webkit-scrollbar {display:none}
+    </style>
+</head>
+<body>
+
+    <div id="main" class="div-main" >
+
+        <div class="self">
+            <div id="self-1"><p>no</p></div>
+            <div id="self-2"><p>no</p></div>
+            <div id="self-3"><p>no</p></div>
+            <div id="self-4"><p>no</p></div>
+        </div>
+
+        <div class="white">
+            <div class="width" id="width-1">                                                   <p id="p-down1">1</p></div>
+            <div class="width" id="width-2"> <div class="blackKey black-1" id="black-1"></div> <p id="p-down2">2</p></div>
+            <div class="width" id="width-3"> <div class="blackKey black-2" id="black-2"></div> <p id="p-down3">3</p></div>
+            <div class="width" id="width-4">                                                   <p id="p-down4">4</p></div>
+            <div class="width" id="width-5"> <div class="blackKey black-3" id="black-3"></div> <p id="p-down5">5</p></div>
+            <div class="width" id="width-6"> <div class="blackKey black-4" id="black-4"></div> <p id="p-down6">6</p></div>
+            <div class="width" id="width-7"> <div class="blackKey black-5" id="black-5"></div> <p id="p-down7">7</p></div>
+            <div class="width" id="width-8">                                                   <p id="p-up1">1*</p> </div>
+            <div class="width" id="width-9"> <div class="blackKey black-6" id="black-6"></div> <p id="p-up2">2*</p> </div>
+            <div class="width" id="width-10"><div class="blackKey black-7" id="black-7"></div> <p id="p-up3">3*</p> </div>
+            <div class="width" id="width-11">                                                  <p id="p-up4">4*</p> </div>
+            <div class="width" id="width-12"><div class="blackKey black-8" id="black-8"></div> <p id="p-up5">5*</p> </div>
+            <div class="width" id="width-13"><div class="blackKey black-9" id="black-9"></div> <p id="p-up6">6*</p> </div>
+            <div class="width width-last" id="width-14"><div class="blackKey black-10" id="black-10"></div><p id="p-up7">7*</p> </div>
+        </div>
+        
+    </div>
+
+    <div id="myModal" class="modal">
+        <!-- 弹窗内容 -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>请仔细阅读</h1>
+            <p>
+                do re mi fa so la ti 分别对应其 Tab q w e r t...一排
+                <br>黑键对应 1 2 3 4 5 7 8 9 0 -
+                <br><strong>按下空格可以切换音色</strong>
+                <br>上面4个小按键可以完全自定义
+                <br><strong>建议使用pc端,体验更好</strong>
+                <br><strong>移动端不提供切换音色</strong>
+                <br><strong>不支持ios设备,会出现大量bug</strong>
+                <br>字体大小按ctrl 和 + - 调整
+                <br>如果有bug与合作,请联系我
+                <br>wx:lyh7144139675
+                <br>
+                <br>
+                <button onclick="javascrip:alert('你点了我也不知道,但是谢谢你')">点个赞</button>
+            </p>
+        </div>
+    </div>
+
+    <div id="leftList" class="container" onclick="myFunction(this); openNav();">
+        <div class="bar1" id="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3" id="bar2"></div>
+        <p>文档</p>
+    </div>
+
+    <div id="changeaudiobox" class="changeAudio" style="z-index: 1000;">
+        <div class="changeBK">
+            <div>
+                <p>A</p>
+                <button onclick="changeC3(a,tinyA)">C3</button>
+                <button onclick="changeD3(a,tinyA)">D3</button>
+                <button onclick="changeE3(a,tinyA)">E3</button>
+                <button onclick="changeF3(a,tinyA)">F3</button>
+                <button onclick="changeG3(a,tinyA)">G3</button>
+                <button onclick="changeA3(a,tinyA)">A3</button>
+                <button onclick="changeB3(a,tinyA)">B3</button>
+                <button onclick="changeC6(a,tinyA)">C6</button>
+                <button onclick="changeD6(a,tinyA)">D6</button>
+                <button onclick="changeE6(a,tinyA)">E6</button>
+                <button onclick="changeF6(a,tinyA)">F6</button>
+                <button onclick="changeG6(a,tinyA)">G6</button>
+                <button onclick="changeA6(a,tinyA)">A6</button>
+                <button onclick="changeB6(a,tinyA)">B6</button>
+            </div>
+            <div>
+                <p>S</p>
+                <button onclick="changeC3(s,tinyS)">C3</button>
+                <button onclick="changeD3(s,tinyS)">D3</button>
+                <button onclick="changeE3(s,tinyS)">E3</button>
+                <button onclick="changeF3(s,tinyS)">F3</button>
+                <button onclick="changeG3(s,tinyS)">G3</button>
+                <button onclick="changeA3(s,tinyS)">A3</button>
+                <button onclick="changeB3(s,tinyS)">B3</button>
+                <button onclick="changeC6(s,tinyS)">C6</button>
+                <button onclick="changeD6(s,tinyS)">D6</button>
+                <button onclick="changeE6(s,tinyS)">E6</button>
+                <button onclick="changeF6(s,tinyS)">F6</button>
+                <button onclick="changeG6(s,tinyS)">G6</button>
+                <button onclick="changeA6(s,tinyS)">A6</button>
+                <button onclick="changeB6(s,tinyS)">B6</button>
+            </div>
+            <div>
+                <p>D</p>
+                <button onclick="changeC3(d,tinyD)">C3</button>
+                <button onclick="changeD3(d,tinyD)">D3</button>
+                <button onclick="changeE3(d,tinyD)">E3</button>
+                <button onclick="changeF3(d,tinyD)">F3</button>
+                <button onclick="changeG3(d,tinyD)">G3</button>
+                <button onclick="changeA3(d,tinyD)">A3</button>
+                <button onclick="changeB3(d,tinyD)">B3</button>
+                <button onclick="changeC6(d,tinyD)">C6</button>
+                <button onclick="changeD6(d,tinyD)">D6</button>
+                <button onclick="changeE6(d,tinyD)">E6</button>
+                <button onclick="changeF6(d,tinyD)">F6</button>
+                <button onclick="changeG6(d,tinyD)">G6</button>
+                <button onclick="changeA6(d,tinyD)">A6</button>
+                <button onclick="changeB6(d,tinyD)">B6</button>
+            </div>    
+            <div>
+                <p>F</p>
+                <button onclick="changeC3(f,tinyF)">C3</button>
+                <button onclick="changeD3(f,tinyF)">D3</button>
+                <button onclick="changeE3(f,tinyF)">E3</button>
+                <button onclick="changeF3(f,tinyF)">F3</button>
+                <button onclick="changeG3(f,tinyF)">G3</button>
+                <button onclick="changeA3(f,tinyF)">A3</button>
+                <button onclick="changeB3(f,tinyF)">B3</button>
+                <button onclick="changeC6(f,tinyF)">C6</button>
+                <button onclick="changeD6(f,tinyF)">D6</button>
+                <button onclick="changeE6(f,tinyF)">E6</button>
+                <button onclick="changeF6(f,tinyF)">F6</button>
+                <button onclick="changeG6(f,tinyF)">G6</button>
+                <button onclick="changeA6(f,tinyF)">A6</button>
+                <button onclick="changeB6(f,tinyF)">B6</button>
+            </div>
+                
+        </div> 
+    </div>
+
+    <div class="turnScreen">
+        <i class="fa-solid fa-repeat fa-spin"></i>
+        <p>请旋转屏幕</p>
+    </div>
+
+
+    <div id="mySidenav" class="sidenav">
+        <h1>菜单</h1>
+        <div id="log">
+            <button>使用说明</button>
+        </div>
+    
+        <div id="log">
+            <button onclick="showEverything(changeaudiobox)">更改键位</button>
+        </div>
+
+        <div id="log">
+            <button>乐谱</button>
+        </div>
+
+    </div>
+
+    <div id="myProgress">
+        <div id="baiBar">10%</div>
+    </div>
+
+    <div id="start">
+        <div>
+            <h1>按任意键开始</h1>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
